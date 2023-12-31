@@ -18,7 +18,8 @@ while running:
     screen.fill("red")
 
     # RENDER YOUR GAME HERE
-
+    snake = pygame.Rect(640, 360, 20, 20)
+    pygame.draw.rect(surface=screen, color="black", rect=snake)
     # flip() the display to put your work on screen
     pygame.display.flip()
 
