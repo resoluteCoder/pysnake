@@ -7,6 +7,7 @@ pygame.init()
 screen = pygame.display.set_mode((1280, 720))
 clock = pygame.time.Clock()
 running = True
+snake = Snake()
 
 while running:
     # poll for events
@@ -19,14 +20,14 @@ while running:
     screen.fill("red")
 
     # RENDER YOUR GAME HERE
-    
-    snake = Snake()
+
     pygame.draw.rect(surface=screen, color="black", rect=pygame.Rect(
         snake.pos_x,
         snake.pos_y,
         snake.width,
         snake.height
     ))
+    
     #implement input here
     key_input = pygame.key.get_pressed()
     if key_input[pygame.K_w]:
