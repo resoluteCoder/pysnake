@@ -6,7 +6,7 @@ class Snake:
         self.pos_x = 200
         self.pos_y = 200
         self.snake_length = 1
-        self.movement_right = 5
+        self.movement_rate = 5
     
     def move_right(self):
         self.pos_x += self.movement_rate
