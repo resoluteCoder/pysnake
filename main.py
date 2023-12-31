@@ -1,5 +1,6 @@
 # Example file showing a basic pygame "game loop"
 import pygame
+from snake import Snake
 
 # pygame setup
 pygame.init()
@@ -20,6 +21,13 @@ while running:
     # RENDER YOUR GAME HERE
     snake = pygame.Rect(640, 360, 20, 20)
     pygame.draw.rect(surface=screen, color="black", rect=snake)
+    # snake = Snake()
+    # pygame.draw.rect(surface=screen, color="black", rect=pygame.Rect(
+    #     snake.pos_x,
+    #     snake.pos_y,
+    #     snake.width,
+    #     snake.height
+    # ))
     # flip() the display to put your work on screen
     pygame.display.flip()
 
