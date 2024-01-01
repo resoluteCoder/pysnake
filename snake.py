@@ -1,8 +1,10 @@
+import random
+
 class Snake:
     def __init__(self):
         self.color = "green"
-        self.width = 50
-        self.height = 50
+        self.width = 15
+        self.height = 15
         self.pos_x = 200
         self.pos_y = 200
         self.snake_length = 1
@@ -22,3 +24,4 @@ class Snake:
     
     def grow_length(self):
         self.snake_length += 1
+

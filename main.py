@@ -1,6 +1,8 @@
 # Example file showing a basic pygame "game loop"
 import pygame
 from snake import Snake
+from food import Food
+
 
 # pygame setup
 pygame.init()
@@ -8,6 +10,7 @@ screen = pygame.display.set_mode((1280, 720))
 clock = pygame.time.Clock()
 running = True
 snake = Snake()
+food = Food()
 
 while running:
     # poll for events
@@ -21,11 +24,17 @@ while running:
 
     # RENDER YOUR GAME HERE
 
-    pygame.draw.rect(surface=screen, color="green", rect=pygame.Rect(
+    pygame.draw.rect(surface=screen, color=snake.color, rect=pygame.Rect(
         snake.pos_x,
         snake.pos_y,
         snake.width,
         snake.height
+    ))
+    pygame.draw.rect(surface=screen, color=food.color , rect=pygame.Rect(
+        food.pos_x,
+        food.pos_y,
+        food.width,
+        food.height
     ))
     
     #implement input here
