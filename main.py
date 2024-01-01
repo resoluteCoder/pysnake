@@ -30,15 +30,27 @@ while running:
     
     #implement input here
     key_input = pygame.key.get_pressed()
-    if key_input[pygame.K_w] or key_input[pygame.K_UP] or key_input[pygame.K_k]:
-        snake.move_up()
-    elif key_input[pygame.K_s] or key_input[pygame.K_DOWN] or key_input[pygame.K_j]:
-        snake.move_down()
-    elif key_input[pygame.K_a] or key_input[pygame.K_LEFT] or key_input[pygame.K_h]:
-        snake.move_left()
-    elif key_input[pygame.K_d] or key_input[pygame.K_RIGHT] or key_input[pygame.K_l]:
-        snake.move_right()
-    # flip() the display to put your work on screen
+    up_direction = [pygame.K_w, pygame.K_UP, pygame.K_k]
+    right_direction = [pygame.K_d, pygame.K_RIGHT, pygame.K_l]
+    down_direction = [pygame.K_s, pygame.K_DOWN, pygame.K_j]
+    left_direction = [pygame.K_a, pygame.K_LEFT, pygame.K_h]
+
+    for direction in up_direction:
+        if key_input[direction]:
+            snake.move_up()
+
+    for direction in right_direction:
+        if key_input[direction]:
+            snake.move_right()
+
+    for direction in down_direction:
+        if key_input[direction]:
+            snake.move_down()
+
+    for direction in left_direction:
+        if key_input[direction]:
+            snake.move_left()
+
     pygame.display.flip()
 
     clock.tick(60)  # limits FPS to 60
