@@ -25,3 +25,8 @@ class Snake:
     def grow_length(self):
         self.snake_length += 1
 
+    def has_eaten(self, pos_x, pos_y, height, width):
+        has_collided_x = self.pos_x >= pos_x - (width / 2) and self.pos_x <= pos_x + (width / 2)
+        has_collided_y = self.pos_y <= pos_y + (height / 2) and self.pos_y >= pos_y - (height / 2)
+
+        return has_collided_x and has_collided_y
