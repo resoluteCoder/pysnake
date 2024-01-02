@@ -66,6 +66,12 @@ while running:
         score += 1
         print(score)
 
+    score_font = pygame.font.SysFont("arial", 25)
+    score_text = pygame.font.Font.render(score_font, (f"Score: {score}"), True, "white")
+    score_position = score_text.get_rect(center=(640, 15))
+    screen.blit(score_text, score_position)
+
+
     pygame.display.flip()
 
     clock.tick(60)  # limits FPS to 60
