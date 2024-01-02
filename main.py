@@ -60,6 +60,9 @@ while running:
         if key_input[direction]:
             snake.move_left()
 
+    if snake.has_eaten(food.pos_x, food.pos_y, food.height, food.width):
+        food = Food()
+
     pygame.display.flip()
 
     clock.tick(60)  # limits FPS to 60
