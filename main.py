@@ -11,6 +11,7 @@ clock = pygame.time.Clock()
 running = True
 snake = Snake()
 food = Food()
+score = 0
 
 while running:
     # poll for events
@@ -62,6 +63,8 @@ while running:
 
     if snake.has_eaten(food.pos_x, food.pos_y, food.height, food.width):
         food = Food()
+        score += 1
+        print(score)
 
     pygame.display.flip()
 
