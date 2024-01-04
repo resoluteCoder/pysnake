@@ -12,6 +12,12 @@ running = True
 snake = Snake()
 food = Food()
 score = 0
+core_font = pygame.font.SysFont("arial", 25)
+
+def display_text(font, text, color, x, y):
+    text_image = pygame.font.Font.render(font, text, True, color)
+    screen.blit(text_image, (x, y))
+
 
 while running:
     # poll for events
@@ -22,6 +28,15 @@ while running:
 
     # fill the screen with a color to wipe away anything from last frame
     screen.fill("black")
+
+    #draw screen for start menu
+    #get text on the screen (name of game, start button and exit button)
+    #allow start option to begin game
+    #allow exit option to close out
+
+    display_text(core_font, ("Welcome to Snake"), "white", 540, 200)
+    display_text(core_font, ("Start"), "white", 620, 300)
+    display_text(core_font, ("Quit"), "white", 623, 350)
 
     # RENDER YOUR GAME HERE
 
@@ -64,10 +79,8 @@ while running:
     if snake.has_eaten(food.pos_x, food.pos_y, food.height, food.width):
         food = Food()
         score += 1
-        print(score)
 
-    score_font = pygame.font.SysFont("arial", 25)
-    score_text = pygame.font.Font.render(score_font, (f"Score: {score}"), True, "white")
+    score_text = pygame.font.Font.render(core_font, (f"Score: {score}"), True, "white")
     score_position = score_text.get_rect(center=(640, 15))
     screen.blit(score_text, score_position)
 
