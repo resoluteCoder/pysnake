@@ -13,11 +13,11 @@ snake = Snake()
 food = Food()
 score = 0
 core_font = pygame.font.SysFont("arial", 25)
+menu = False
 
 def display_text(font, text, color, x, y):
     text_image = pygame.font.Font.render(font, text, True, color)
     screen.blit(text_image, (x, y))
-
 
 while running:
     # poll for events
@@ -31,12 +31,13 @@ while running:
 
     #draw screen for start menu
     #get text on the screen (name of game, start button and exit button)
+    #mouse needs to be visible on screen / pygame.mouse.set_visible()
+    #mouse needs to collide with box for menu option
+    #mouse needs to be registered as a click on said option, and that menu's option needs to happen, i.e quit or start 
     #allow start option to begin game
     #allow exit option to close out
 
-    display_text(core_font, ("Welcome to Snake"), "white", 540, 200)
-    display_text(core_font, ("Start"), "white", 620, 300)
-    display_text(core_font, ("Quit"), "white", 623, 350)
+    
 
     # RENDER YOUR GAME HERE
 
@@ -84,6 +85,14 @@ while running:
     score_position = score_text.get_rect(center=(640, 15))
     screen.blit(score_text, score_position)
 
+    display_text(core_font, ("Welcome to Snake"), "white", 540, 200)
+    start_button = pygame.draw.rect(screen, "white", [620, 300, 57, 34], 0)
+    pygame.draw.rect(screen, "dark gray", [620, 300, 57, 34], 4)
+    display_text(core_font, ("Start"), "black", 620, 300)
+    quit_button = pygame.draw.rect(screen, "white", [623, 350, 50, 34], 0)
+    pygame.draw.rect(screen, "dark gray", [623, 350, 50, 34], 4)
+    display_text(core_font, ("Quit"), "black", 623, 350)
+    
 
     pygame.display.flip()
 
